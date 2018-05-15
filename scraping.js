@@ -3,9 +3,9 @@ var fs = require('fs');
 var request = require('request');
 var cheerio = require('cheerio');
 var app = express();
-// const puppeteer = require('puppeteer');
 
-app.get('/', function(req, res){
+
+app.get('/scraping', function(req, res){
     
     var urls = ['https://motos.coches.net/fichas_tecnicas/aprilia/sr_max_300/2011-5422.htm',
     					'https://motos.coches.net/fichas_tecnicas/aprilia/rs4_50/2017-7311.htm',
@@ -197,46 +197,47 @@ app.get('/', function(req, res){
 	        // Finally, we'll define the variables we're going to capture
 
 	        var marca, modelo, cilindrada, potencia, precio;
-	        var json = { marca : "", modelo : "", cilindrada : "", potencia: "", precio: ""};
-	        // let element = ;
-	        
+	        var moto = { marca : "", modelo : "", cilindrada : "", potencia: "", precio: "", foto: ""};	        
 	       
 		      $("h3:contains('Fabricante')").filter(function(){
 		          var data = $(this);
 		          marca = data.next().text();
 		          
-		          json.marca = marca
+		          moto.marca = marca
 		          
 		      })
 		      $("h3:contains('Modelo')").filter(function(){
 		          var data = $(this);
 		          modelo = data.next().text();
 		          
-		          json.modelo = modelo;
+		          moto.modelo = modelo;
 		          
 		      })
 		      $("span:contains('cc')").filter(function(){
 		          var data = $(this);
 		          cilindrada = data.text();
-		          
-		          json.cilindrada = cilindrada;
+		          moto.cilindrada = cilindrada;
 		          
 		      })
 		      $("span:contains('cv')").filter(function(){
 		          var data = $(this);
 		          potencia = data.text();
-		          
-		          json.potencia = potencia;
+		         	moto.potencia = potencia;
 		          
 		      })
 		      $("span:contains('€')").filter(function(){
 		          var data = $(this);
 		          precio = data.text();
-		          
-		          json.precio = precio;
+		          moto.precio = precio;
 		          
 		      })
-		      dataBase.push(json);
+		      $('#_ctl0_ContentPlaceHolder1_PhotosAd1_imgFotogrande').filter(function(){
+		          var data = $(this);
+		          foto = data.attr('src');	// Guardar imagen en mi propio storage
+		          moto.foto = foto;
+		          
+		      })
+		      dataBase.push(moto);
 		      console.log(dataBase);
 		    }
 	 			 // fs.writeFile('output.json', JSON.stringify(dataBase, null, 4), function(err){
@@ -251,4 +252,4 @@ app.get('/', function(req, res){
 
 app.listen('8081')
 console.log('Magic happens on port 8081');
-exports = module.exports = app;
+module.exports = app;
