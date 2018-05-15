@@ -8,10 +8,7 @@
 		    The app which helps you to choose the best option!
 		  </template>
 		  <hr class="my-4">
-		  <router-link :to="{name:'firstLink'}">
-		  	<b-btn variant="primary" href="#">Start the test</b-btn>
-			</router-link>
-		  <b-btn variant="success" href="#">Other thing</b-btn>
+		  	<b-btn variant="primary"@click="goToTest">Start the test</b-btn>
 		</b-jumbotron>
 	</b-container>
 </template>
@@ -19,7 +16,15 @@
 <script>
 
 export default {
-
+	methods: {
+			goToTest(){
+				this.$router.replace({name: 'firstLink'})
+			}
+		}
+	}
 	
-}
 </script>
+
+<style>
+	
+</style>

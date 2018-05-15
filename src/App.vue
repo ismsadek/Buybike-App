@@ -1,14 +1,14 @@
 <template>
   <div id="app">
-     <div class="container">
+     <b-container fluid>
       <Header/>  
-    </div>
-    <div class="container fluid">
+    </b-container>
+    <b-container 
       <router-view/>
-    </div>
-    <div class="container">
+    </b-container>
+    <b-container fluid>
       <Footer/>
-    </div>
+    </b-container fluid>
   </div>
 </template>
 
