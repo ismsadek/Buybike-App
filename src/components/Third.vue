@@ -19,6 +19,10 @@
 
 <script>
 	export default {
+    saveSecondAnswer(e){
+      var second = e.currentTarget.value
+      console.log(selected)
+    }
 		
 	}
 </script>

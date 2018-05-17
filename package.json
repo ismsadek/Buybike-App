@@ -11,9 +11,15 @@
   },
   "dependencies": {
     "bootstrap-vue": "^2.0.0-rc.9",
+    "cheerio": "^1.0.0-rc.2",
+    "express": "^4.16.3",
+    "firebase": "^5.0.2",
     "jquery": "^3.3.1",
+    "mongoose": "^5.1.1",
+    "request": "^2.86.0",
     "vue": "^2.5.11",
-    "vue-router": "^3.0.1"
+    "vue-router": "^3.0.1",
+    "vuefire": "^1.4.5"
   },
   "browserslist": [
     "> 1%",

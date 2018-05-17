@@ -1,16 +1,22 @@
 <template>
 	
-	<b-container fluid>
-		<!-- <img src="../assets/pic01.jpg" alt=""> -->
-		<h2>Press the button if you want to start</h2>
-	</b-container>
+	<div>
+		 <!-- <b-img src="../assets/.jpg" fluid alt="Responsive image"/> -->
+	</div>
 	
 </template>
 
 <script>
+import {storage} from '../firebase'
 
 export default {
 
 	
 }
 </script>
+
+<style>
+	img {
+
+	}
+</style>

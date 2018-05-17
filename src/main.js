@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 import VueRouter from 'vue-router'
+import VueFire from 'vuefire'
 import { routes } from './routes.js';
 
 
@@ -10,7 +11,8 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 Vue.use(BootstrapVue);
-Vue.use(VueRouter)
+Vue.use(VueRouter);
+Vue.use(VueFire);
 
 
 const router = new VueRouter({
