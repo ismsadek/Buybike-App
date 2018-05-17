@@ -1,6 +1,6 @@
 <template>
 	<b-container>
-		<h4>Which brand would you prefer?</h4> <!-- posterior grafica con las marcas preferidas de los usuarios -->
+		<h4>In which brand are you interested?</h4> <!-- posterior grafica con las marcas preferidas de los usuarios -->
 		<!-- Listado de imagenes como las de motos.net -->
 		<img class="aprilia"src="../assets/logo_aprilia.gif"@click="goToResult">
 		<img src="../assets/logo_bmw.gif"@click="goToResult">
@@ -21,6 +21,7 @@
 		<img src="../assets/logo_triumph.gif"@click="goToResult">
 		<img src="../assets/logo_vespa.gif"@click="goToResult">
 		<img src="../assets/logo_yamaha.gif"@click="goToResult">
+		<b-button variant="success"@click="goToResult"value="none">None</b-button>
 	</b-container>
 </template>
 

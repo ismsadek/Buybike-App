@@ -4,9 +4,16 @@
 		<!-- <h5>Choose one and see the nearest workshop!</h5> -->
 		
 
-		<ul v-for="moto in motos">
-			<li>{{moto.modelo}}</li>	
-		</ul>
+		<div v-for="moto in motos">
+			
+			<!-- .replace("€","").trim() -->
+			<ul>
+				<li>{{moto.marca}}</li>
+				<li>{{moto.modelo}}</li>	
+				<li>{{moto.precio}}</li>
+				<li>{{moto.potencia}}</li>			
+			</ul>
+		</div>
 	</b-container>
 
 </template>
@@ -14,17 +21,20 @@
 <script>
 	import { dbMotosRef } from '../firebase'
 
+
 	export default {
 		data(){
 			return{
+				
 			}
 		},
 		methods : {
-
+		
 		},
 		firebase: {
 			motos: {
 				source: dbMotosRef
+
 
 			}
 		}

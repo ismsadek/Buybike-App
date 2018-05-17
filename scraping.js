@@ -229,7 +229,7 @@ app.get('/scraping', function(req, res){
 		      $("span:contains('€')").filter(function(){
 		          var data = $(this);
 		          precio = data.text();
-		          moto.precio = precio;
+		          moto.precio = precio.;
 		          
 		      })
 		      $('#_ctl0_ContentPlaceHolder1_PhotosAd1_imgFotogrande').filter(function(){

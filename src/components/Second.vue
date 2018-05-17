@@ -18,9 +18,11 @@
 
 <script>
 	export default {
-		saveSecondAnswer(e){
-				var second = e.currentTarget.value
-				console.log(selected)
+		methods: {
+			saveSecondAnswer(e){
+						var second = e.currentTarget.value
+						console.log(second)
+				}
 		}
 		
 	}
