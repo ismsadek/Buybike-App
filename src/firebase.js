@@ -12,7 +12,8 @@ const firebaseApp = Firebase.initializeApp({
   
 });
 
-const db = firebaseApp.database()
+export const db = firebaseApp.database()
 export const storage = firebaseApp.storage()
 export const dbMotosRef = db.ref('motos');
+export const auth = firebaseApp.auth()
 // export const auth = firebaseApp.auth()

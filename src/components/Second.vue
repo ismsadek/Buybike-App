@@ -17,12 +17,32 @@
 </template>
 
 <script>
+	import { auth } from '../firebase'
+	import { db } from '../firebase'
+
 	export default {
+		data(){
+			return {
+				newUser: {
+					'uid':"",
+					'carnet': "",
+					'presupuesto': "",
+					'distancia': "",
+					'preferencia':"",
+					'favbrand': ""
+
+
+				}
+		}
+	},
 		methods: {
 			saveSecondAnswer(e){
-						var second = e.currentTarget.value
-						console.log(second)
-				}
+						// var second = e.currentTarget.value
+						// console.log(second)
+				this.newUser.presupuesto = e.currentTarget.value;
+				console.log(this.newUser.presupuesto)
+				db.ref('users').child(this.newUser.uid).set(this.newUser)
+			}
 		}
 		
 	}

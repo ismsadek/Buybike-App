@@ -14,10 +14,18 @@
 </template>
 
 <script>
-
+import { auth } from '../firebase'
+import { db } from '../firebase'
 export default {
 	methods: {
 			goToTest(){
+				auth.signInAnonymously().catch(function(error) {
+				  // Handle Errors here.
+				  var errorCode = error.code;
+				  var errorMessage = error.message;
+				  // ...
+				});
+				db.ref('users').push(auth.currentUser.uid)
 				this.$router.replace({name: 'firstLink'})
 			}
 		}

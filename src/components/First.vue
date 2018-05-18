@@ -21,12 +21,33 @@
 </template>
 
 <script>
+	import { auth } from '../firebase'
+	import { db } from '../firebase'
+
 	export default {
-		methods :{
+		data(){
+			return {
+				newUser: {
+					'uid':"",
+					'carnet': "",
+					'presupuesto': "",
+					'distancia': "",
+					'preferencia':"",
+					'favbrand': ""
+
+
+				}
+			};
+		},
+
+		methods: {
 
 			saveFirstAnswer(e){
-				var first = e.currentTarget.value
-				console.log(first)
+				// var first = e.currentTarget.value
+				// console.log(first)
+				this.newUser.uid = auth.currentUser.uid;
+				this.newUser.carnet = e.currentTarget.value;
+				db.ref('users').child(this.newUser.uid).set(this.newUser)
 			}
 			
 		}

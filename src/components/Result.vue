@@ -6,13 +6,15 @@
 
 		<div v-for="moto in motos">
 			
-			<!-- .replace("€","").trim() -->
-			<ul>
-				<li>{{moto.marca}}</li>
-				<li>{{moto.modelo}}</li>	
-				<li>{{moto.precio}}</li>
-				<li>{{moto.potencia}}</li>			
-			</ul>
+			<div v-if="moto.precio > 5.000 && moto.potencia > 20 "> 
+				<ul>
+					<li>Marca: {{moto.marca}}</li>
+					<li>Modelo: {{moto.modelo}}</li>	
+					<li>Precio: {{moto.precio}} €</li>
+					<li>Potencia: {{moto.potencia}}cv</li>
+					<li>{{moto.foto}}</li>			
+				</ul>
+			</div>
 		</div>
 	</b-container>
 
@@ -20,7 +22,7 @@
 
 <script>
 	import { dbMotosRef } from '../firebase'
-
+	 
 
 	export default {
 		data(){

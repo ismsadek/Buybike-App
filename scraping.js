@@ -223,13 +223,15 @@ app.get('/scraping', function(req, res){
 		      $("span:contains('cv')").filter(function(){
 		          var data = $(this);
 		          potencia = data.text();
-		         	moto.potencia = potencia;
+		         	moto.potencia = potencia.substr(0, potencia.indexOf('c'))
+		         	Number(moto.potencia);
 		          
 		      })
 		      $("span:contains('€')").filter(function(){
 		          var data = $(this);
 		          precio = data.text();
-		          moto.precio = precio.;
+		          moto.precio = precio.replace('€','').trim()
+		         	Number(moto.precio);
 		          
 		      })
 		      $('#_ctl0_ContentPlaceHolder1_PhotosAd1_imgFotogrande').filter(function(){
