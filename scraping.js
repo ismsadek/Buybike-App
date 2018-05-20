@@ -198,7 +198,7 @@ app.get('/scraping', function(req, res){
 	        // Finally, we'll define the variables we're going to capture
 
 	        var marca, modelo, cilindrada, potencia, precio;
-	        var moto = { id: i, marca : "", modelo : "", cilindrada : "", potencia: "", precio: "", foto: ""};	        
+	        var moto = { id: i, marca : "", modelo : "", cilindrada : "", potencia: "", cambio: "", precio: "", foto: ""};	        
 	       
 		      $("h3:contains('Fabricante')").filter(function(){
 		          var data = $(this);
@@ -220,11 +220,19 @@ app.get('/scraping', function(req, res){
 		          moto.cilindrada = cilindrada;
 		          
 		      })
+
 		      $("span:contains('cv')").filter(function(){
 		          var data = $(this);
 		          potencia = data.text();
 		         	moto.potencia = potencia.substr(0, potencia.indexOf('c'))
 		         	Number(moto.potencia);
+		          
+		      })
+		      $("span:contains('Embrague')").filter(function(){
+		          var data = $(this);
+		          cambio = data.next().text();
+		          
+		          moto.cambio = cambio;
 		          
 		      })
 		      $("span:contains('€')").filter(function(){

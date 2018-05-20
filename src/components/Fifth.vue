@@ -26,11 +26,22 @@
 </template>
 
 <script>
+	import { auth } from '../firebase'
+	import { db } from '../firebase'
+
 	export default {
 		methods: {
 			goToResult(){
 				this.$router.replace({name: 'resultLink'})
-			}
+				auth.signOut()
+					.then(function() {
+					alert('Te deslogeaste plemo!')
+					}, function(error) {
+					//muestra error
+					alert(err.message);
+				});
+		  }
 		}
 	}
+	
 </script>

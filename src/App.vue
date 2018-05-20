@@ -3,7 +3,7 @@
      <b-container fluid>
       <Header/>  
     </b-container>
-    <b-container 
+    <b-container fluid>
       <router-view/>
     </b-container>
     <b-container fluid>

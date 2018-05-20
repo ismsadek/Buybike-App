@@ -10,10 +10,13 @@ var moto = {
 };
 
 //CASE 1
-if(first === "A" && second ==="4999" && third ==="10" && fourth ==="gears" ){
+for(var moto in motos){
+	if(first === "A" && second ==="4999" && third ==="10" && fourth ==="gears" ){
 	// Muestrame todas las motos con potencia menor a 15CV que valgan menos de 5000 
 	//con cambio automatico
 
+	
+	}
 }
 
 if(first === "A" && second ==="9999" && third ==="10" && fourth ==="automatic" ){

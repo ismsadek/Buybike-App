@@ -1,14 +1,8 @@
 <template>
 	<b-container fluid>
-		<b-jumbotron fluid>
-		  <template slot="header">
-		    Buybike
-		  </template>
-		  <template slot="lead">
-		    The app which helps you to choose the best option!
-		  </template>
-		  <hr class="my-4">
-		  	<b-btn variant="primary"@click="goToTest">Start the test</b-btn>
+		<b-jumbotron fluid  header="Buybike" lead="The app which helps you to choose the best option!">
+		 <!--  <img src="../assets/logo_pag.png" alt="logo" class="main-logo">		  --> 
+		  	<b-btn variant="primary"@click="goToTest">Start now!</b-btn>
 		</b-jumbotron>
 	</b-container>
 </template>
@@ -25,7 +19,7 @@ export default {
 				  var errorMessage = error.message;
 				  // ...
 				});
-				db.ref('users').push(auth.currentUser.uid)
+				// db.ref('users').push(auth.currentUser.uid)
 				this.$router.replace({name: 'firstLink'})
 			}
 		}
@@ -35,4 +29,10 @@ export default {
 
 <style>
 	
+/*.main-logo {
+	position: absolute;
+	width: 5%;
+	margin-left: 10px;
+}
+*/
 </style>
