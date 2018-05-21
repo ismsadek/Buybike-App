@@ -22,6 +22,7 @@
 	import { dbMotosRef } from '../firebase';
 	import { dbUsersRef } from '../firebase';
 	import { dbSelectedRef } from '../firebase';
+	import axios from 'axios';
 
 	export default {
 		data(){
@@ -34,15 +35,34 @@
 		methods: {
 			saveSecondAnswer(e){
 				this.answer2.presupuesto = parseFloat(e.currentTarget.value)
-				// var uid = JSON.stringify(this.answers.userUid)
+				console.log(this.answer2.presupuesto)
 				db.ref('users').push(this.answer2)
-				// for(var n = 0; n <this.motos.length; n++){
-				// 	if(this.answer2.presupuesto === 4.999){
-						
-				// 	}
-				// }
-			}
+				console.log(dbSelectedRef.length)
+
+				for(var n = 0; n <this.motos.length; n++){
+						if(this.answer2.presupuesto === 4.999 && this.motos[n].precio >5.000){
+																
+							}
+						}
+					}
+
+			
+				
 		},
+		created() {
+		
+	  	axios.get(`https://buy-bike.firebaseio.com/selected.json`)
+	    	.then(response => {
+	      // JSON responses are automatically parsed.
+	      this.motos = response.data
+	      })
+		    .catch(e => {
+		      this.errors.push(e)
+		    })
+			    
+		
+	},
+
 		firebase: {
 			motos: {
 				source: dbMotosRef
@@ -54,6 +74,7 @@
 				source: dbSelectedRef
 			}
 		}
-		
 	}
+		
+	
 </script>
