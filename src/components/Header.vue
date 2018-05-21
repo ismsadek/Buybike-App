@@ -10,7 +10,14 @@
 <script>
 import { auth } from '../firebase'
 import { db } from '../firebase'
+
+
+
 export default {
+	data(){
+		return{
+		}
+	},
 	methods: {
 			goToTest(){
 				auth.signInAnonymously().catch(function(error) {
@@ -19,10 +26,13 @@ export default {
 				  var errorMessage = error.message;
 				  // ...
 				});
-				// db.ref('users').push(auth.currentUser.uid)
+				// this.answers.userUid = auth.currentUser.uid
+				// var uid = JSON.stringify(this.answers.userUid)
+				// db.ref('users').push(this.answers)
 				this.$router.replace({name: 'firstLink'})
 			}
-		}
+		},
+		
 	}
 	
 </script>

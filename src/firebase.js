@@ -17,4 +17,5 @@ export const storage = firebaseApp.storage();
 export const dbMotosRef = db.ref('motos');
 export const dbUsersRef = db.ref('users');
 export const auth = firebaseApp.auth();
+export const dbSelectedRef = db.ref('selected');
 // export const auth = firebaseApp.auth()

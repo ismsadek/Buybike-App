@@ -217,7 +217,8 @@ app.get('/scraping', function(req, res){
 		      $("span:contains('cc')").filter(function(){
 		          var data = $(this);
 		          cilindrada = data.text();
-		          moto.cilindrada = cilindrada;
+		          moto.cilindrada = cilindrada.replace('cc','').replace('.','').trim();
+		          Number(moto.cilindrada);
 		          
 		      })
 

@@ -19,19 +19,39 @@
 <script>
 	import { auth } from '../firebase'
 	import { db } from '../firebase'
+	import { dbMotosRef } from '../firebase';
+	import { dbUsersRef } from '../firebase';
+	import { dbSelectedRef } from '../firebase';
 
 	export default {
 		data(){
 			return {
-				secondAnswer: {
+				answer2: {
 					'presupuesto': "",
 				}
 			}
 		},
 		methods: {
 			saveSecondAnswer(e){
-				this.secondAnswer.presupuesto = parseFloat(e.currentTarget.value)
-				db.ref('users/user1').push(this.secondAnswer)
+				this.answer2.presupuesto = parseFloat(e.currentTarget.value)
+				// var uid = JSON.stringify(this.answers.userUid)
+				db.ref('users').push(this.answer2)
+				// for(var n = 0; n <this.motos.length; n++){
+				// 	if(this.answer2.presupuesto === 4.999){
+						
+				// 	}
+				// }
+			}
+		},
+		firebase: {
+			motos: {
+				source: dbMotosRef
+			},
+			users: {
+				source: dbUsersRef
+			},
+			selected:{
+				source: dbSelectedRef
 			}
 		}
 		

@@ -20,11 +20,14 @@
 <script>
 	import { auth } from '../firebase'
 	import { db } from '../firebase'
+	import { dbMotosRef } from '../firebase';
+	import { dbUsersRef } from '../firebase';
+	import { dbSelectedRef } from '../firebase';
 
 	export default {
 		data(){
 			return {
-				thirdAnswer: {
+				answer3: {
 					'distancia': "",
 				}
 			}
@@ -33,8 +36,20 @@
 			saveThirdAnswer(e){
 						// var third = e.currentTarget.value
 						// console.log(third)
-				this.thirdAnswer.distancia = parseInt(e.currentTarget.value)
-				db.ref('users/user1').set(this.thirdAnswer)
+				this.answer3.distancia = parseInt(e.currentTarget.value)
+				// var uid = JSON.stringify(this.answers.userUid)
+				db.ref('users').push(this.answer3)
+			}
+		},
+		firebase: {
+			motos: {
+				source: dbMotosRef
+			},
+			users: {
+				source: dbUsersRef
+			},
+			selected:{
+				source: dbSelectedRef
 			}
 		}
 	}

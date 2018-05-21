@@ -13,19 +13,35 @@
 <script>
 	import { auth } from '../firebase'
 	import { db } from '../firebase'
+	import { dbMotosRef } from '../firebase';
+	import { dbUsersRef } from '../firebase';
+	import { dbSelectedRef } from '../firebase';
+
 	
 	export default {
 		data(){
 			return {
-				fourthAnswer: {
-					'cambio': "",
+				answer4: {
+					'preferencia': "",
 				}
 			}
 		},
 		methods: {
 			saveFourthAnswer(e){
-				this.fourthAnswer.cambio = parseInt(e.currentTarget.value)
-				db.ref('users/user1').set(this.fourthAnswer)
+				this.answer4.preferencia = parseInt(e.currentTarget.value)
+				// var uid = JSON.stringify(this.answer4.userUid)
+				db.ref('users').push(this.answer4)
+			}
+		},
+		firebase: {
+			motos: {
+				source: dbMotosRef
+			},
+			users: {
+				source: dbUsersRef
+			},
+			selected:{
+				source: dbSelectedRef
 			}
 		}
 	}
