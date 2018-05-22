@@ -5,6 +5,13 @@
 		<b-button variant="success"@click="clearUsersDb"> Clear list! </b-button><br>
 		<!-- <h5>Choose one and see the nearest workshop!</h5> -->
 		
+		<div v-for="moto in selected">
+			<ul>
+				<li>{{moto.modelo}}</li>
+				<li>{{moto.precio}}</li>
+				<li>{{moto.potencia}}</li>
+				<li>{{moto.cilindrada}}</li>
+			</ul>
 		</div>
 		
 		

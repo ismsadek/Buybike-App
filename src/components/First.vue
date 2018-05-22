@@ -16,9 +16,7 @@
 		<router-link :to="{name:'secondLink'}">
 			<b-button variant="success"value ="5"@click="saveFirstAnswer">AM</b-button>
 		</router-link>
-		<div v-for="moto in selected">
-			{{moto.modelo}}
-		</div>
+		
 
 	</b-container>
 	
@@ -50,26 +48,58 @@
 			saveFirstAnswer(e){
 				this.answer1.carnet = parseInt(e.currentTarget.value)
 				console.log(this.answer1.carnet)
-				// this.answer1.userUid = auth.currentUser.uid
+				// var uid = auth.currentUser.uid
 				dbUsersRef.push(this.answer1)
 					
-				for(var n = 0; n <this.motos.length; n++){
+				for(var n = 0; n <= this.motos.length; n++){
 					if(this.answer1.carnet === 1){
+							console.log('Carnet A')
 							dbSelectedRef.push(this.motos[n])
+
 					} else if(this.motos[n].potencia <=47 && this.answer1.carnet === 2){
+							console.log('Carnet A2')
 							dbSelectedRef.push(this.motos[n])
+
 					}	else if(this.motos[n].cilindrada <=125 && this.answer1.carnet === 3){
+							console.log('Carnet A1')
 							dbSelectedRef.push(this.motos[n])
+
 					} else if(this.answer1.carnet === 4 && this.motos[n].cilindrada <=125 ){
+							console.log('Carnet B')
 							dbSelectedRef.push(this.motos[n])
+
 					} else if(this.motos[n].cilindrada <=50 && this.answer1.carnet === 5 ){
+							console.log('Carnet AM')
 							dbSelectedRef.push(this.motos[n])
-					} 
+					}
+				}  
 
 				}
+		// 		for(let moto in this.motos){
+		// 			console.log(this.motos[moto].potencia)
+					
+		// 			if(this.answer1.carnet === 1){
+		// 					console.log('Se han pusheado todas')
+		// 					db.ref('selected').push(this.motos[moto])
+
+		// 			} else if(this.answer1.carnet === 2 && this.motos[moto].potencia <= 47 ){
+		// 					console.log('Se han pusheado las menores de 47cv ')
+		// 					db.ref('selected').push(this.motos[moto])
+
+		// 			} else if(this.answer1.carnet === 3 && this.motos[moto].potencia <= 15){
+		// 					console.log('Se han pusheado las menores de 15cv')
+		// 					db.ref('selected').push(this.motos[moto])
+
+		// 			} else if(this.answer1.carnet === 5 && this.motos[moto].cilindrada <= 50){
+		// 					console.log('Se han eliminado las menores de 50cc')
+		// 					db.ref('selected').push(this.motos[moto])
+		// 			} else if(this.answer1.carnet === 5 && this.motos[moto].cilindrada <= 50){
+		// 					console.log('Se han eliminado las menores de 50cc')
+		// 					db.ref('selected').push(this.motos[moto]) 
+		// 			}
 				
-			
-			}
+		// 	 }
+		// 	}
 		},
 	
 
