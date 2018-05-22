@@ -1,8 +1,7 @@
 <template>
 	<b-container fluid>
-		<b-jumbotron fluid  header="Buybike" lead="The app which helps you to choose the best option!">
-		 <!--  <img src="../assets/logo_pag.png" alt="logo" class="main-logo">		  --> 
-		  	<b-btn variant="primary"@click="goToTest">Start now!</b-btn>
+		<b-jumbotron fluid class="jumbo"  header="Buybike" lead="The app which helps you to choose the best option!">
+		  <b-btn variant="outline-primary"@click="goToTest">Try now!</b-btn>
 		</b-jumbotron>
 	</b-container>
 </template>
@@ -38,6 +37,11 @@ export default {
 </script>
 
 <style>
+
+.jumbo {
+	background-color: #012744;
+	color: white;
+}
 	
 /*.main-logo {
 	position: absolute;

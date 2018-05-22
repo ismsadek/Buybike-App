@@ -2,32 +2,41 @@
 	<b-container>
 		<h4>In which brand are you interested?</h4> <!-- posterior grafica con las marcas preferidas de los usuarios -->
 		<!-- Listado de imagenes como las de motos.net -->
-		<img class="aprilia"src="../assets/logo_aprilia.gif"@click="goToResult">
-		<img src="../assets/logo_bmw.gif"@click="goToResult">
-		<img src="../assets/logo_daelim.gif"@click="goToResult">
-		<img src="../assets/logo_derbi.gif"@click="goToResult">
-		<img src="../assets/logo_ducati.gif"@click="goToResult">
-		<img src="../assets/logo_harleydavidson.gif"@click="goToResult">
-		<img src="../assets/logo_honda.gif"@click="goToResult">
-		<img src="../assets/logo_hyosung.gif"@click="goToResult">
-		<img src="../assets/logo_kawasaki.gif"@click="goToResult">
-		<img src="../assets/logo_keeway.gif"@click="goToResult">
-		<img src="../assets/logo_ktm.gif"@click="goToResult">
-		<img src="../assets/logo_kymco.gif"@click="goToResult">
-		<img src="../assets/logo_motoguzzi.gif"@click="goToResult">
-		<img src="../assets/logo_piaggio.gif"@click="goToResult">
-		<img src="../assets/logo_suzuki.gif"@click="goToResult">
-		<img src="../assets/logo_sym.gif"@click="goToResult">
-		<img src="../assets/logo_triumph.gif"@click="goToResult">
-		<img src="../assets/logo_vespa.gif"@click="goToResult">
-		<img src="../assets/logo_yamaha.gif"@click="goToResult">
-		<b-button variant="success"@click="goToResult"value="none">None</b-button>
+		 <b-row>
+			
+			<img class="aprilia"src="../assets/logo_aprilia.gif"@click="goToResult">
+			<img src="../assets/logo_bmw.gif"@click="goToResult">
+			<img src="../assets/logo_daelim.gif"@click="goToResult">
+			<img src="../assets/logo_derbi.gif"@click="goToResult">
+			<img src="../assets/logo_ducati.gif"@click="goToResult">
+		 
+			<img src="../assets/logo_harleydavidson.gif"@click="goToResult">
+			</b-row>
+			 <b-row>
+				<img src="../assets/logo_honda.gif"@click="goToResult">
+				<img src="../assets/logo_hyosung.gif"@click="goToResult">
+				<img src="../assets/logo_kawasaki.gif"@click="goToResult">
+				<img src="../assets/logo_keeway.gif"@click="goToResult">
+				<img src="../assets/logo_ktm.gif"@click="goToResult">
+			 </b-row>
+			  <b-row>
+					<img src="../assets/logo_kymco.gif"@click="goToResult">
+					<img src="../assets/logo_motoguzzi.gif"@click="goToResult">
+					<img src="../assets/logo_piaggio.gif"@click="goToResult">
+					<img src="../assets/logo_suzuki.gif"@click="goToResult">
+					<img src="../assets/logo_sym.gif"@click="goToResult">
+				</b-row>
+					<img src="../assets/logo_triumph.gif"@click="goToResult">
+					<img src="../assets/logo_vespa.gif"@click="goToResult">
+					<img src="../assets/logo_yamaha.gif"@click="goToResult">
+			<!-- <b-button variant="outline-primary"@click="goToResult"value="none">None</b-button> -->
 	</b-container>
 </template>
 
 <script>
 	import { auth } from '../firebase'
 	import { db } from '../firebase'
+	import { dbBrandRef } from '../firebase'
 
 	export default {
 		methods: {
@@ -35,7 +44,7 @@
 				this.$router.replace({name: 'resultLink'})
 				auth.signOut()
 					.then(function() {
-					alert('Te deslogeaste plemo!')
+					console.log('Deslogeado')
 					}, function(error) {
 					//muestra error
 					alert(err.message);

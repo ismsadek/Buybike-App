@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div class="conatiner fluid" id="app">
      <b-container fluid>
       <Header/>  
     </b-container>

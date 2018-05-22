@@ -1,21 +1,28 @@
 <template>
-	<b-container>
-		<h4>What's your driving license?</h4><br>
-		<router-link :to="{name:'secondLink'}">
-			<b-button variant="success"value ="1"@click="saveFirstAnswer">A</b-button>
-		</router-link>
-		<router-link :to="{name:'secondLink'}">
-			<b-button variant="success"value ="2"@click="saveFirstAnswer">A2</b-button>
-		</router-link>
-		<router-link :to="{name:'secondLink'}">
-			<b-button variant="success"value ="3"@click="saveFirstAnswer">A1</b-button>
-		</router-link>
-		<router-link :to="{name:'secondLink'}">
-			<b-button variant="success"value ="4"@click="saveFirstAnswer">B</b-button>
-		</router-link>
-		<router-link :to="{name:'secondLink'}">
-			<b-button variant="success"value ="5"@click="saveFirstAnswer">AM</b-button>
-		</router-link>
+	<b-container fluid class="main">
+		<div class=" row">
+			<div class="col-6">
+			<h4>What's your driving license?</h4><br>
+			</div>
+		</div>
+		<div class=" row justify-content-center">
+			<router-link :to="{name:'secondLink'}">
+				<b-button  class="ml-3 btn-lg" variant="outline-primary"value ="1"@click="saveFirstAnswer1">A</b-button>
+			</router-link>
+			<router-link :to="{name:'secondLink'}">
+				<b-button btn-lg class="ml-3 btn-lg" variant="outline-primary"value ="2"@click="saveFirstAnswer2">A2</b-button>
+			</router-link>
+			<router-link :to="{name:'secondLink'}">
+				<b-button class="ml-3 btn-lg" variant="outline-primary"value ="3"@click="saveFirstAnswer3">A1</b-button>
+			</router-link>
+			<router-link :to="{name:'secondLink'}">
+				<b-button class="ml-3 btn-lg" variant="outline-primary"value ="4"@click="saveFirstAnswer3">B</b-button>
+			</router-link>
+			<router-link :to="{name:'secondLink'}">
+				<b-button class="ml-3 btn-lg" variant="outline-primary"value ="5"@click="saveFirstAnswer4">AM</b-button>
+			</router-link>
+		</div>
+
 		
 
 	</b-container>
@@ -26,7 +33,7 @@
 	import { auth } from '../firebase';
 	import { dbMotosRef } from '../firebase';
 	import { dbUsersRef } from '../firebase';
-	import { dbSelectedRef } from '../firebase';
+	import { dbFilterOneRef } from '../firebase';
 	import { db } from '../firebase';
 
 	import axios from 'axios';
@@ -45,79 +52,82 @@
 
 		methods: {
 
-			saveFirstAnswer(e){
+			saveFirstAnswer1(e){
 				this.answer1.carnet = parseInt(e.currentTarget.value)
 				console.log(this.answer1.carnet)
 				// var uid = auth.currentUser.uid
 				dbUsersRef.push(this.answer1)
 					
-				for(var n = 0; n <= this.motos.length; n++){
-					if(this.answer1.carnet === 1){
-							console.log('Carnet A')
-							dbSelectedRef.push(this.motos[n])
-
-					} else if(this.motos[n].potencia <=47 && this.answer1.carnet === 2){
-							console.log('Carnet A2')
-							dbSelectedRef.push(this.motos[n])
-
-					}	else if(this.motos[n].cilindrada <=125 && this.answer1.carnet === 3){
-							console.log('Carnet A1')
-							dbSelectedRef.push(this.motos[n])
-
-					} else if(this.answer1.carnet === 4 && this.motos[n].cilindrada <=125 ){
-							console.log('Carnet B')
-							dbSelectedRef.push(this.motos[n])
-
-					} else if(this.motos[n].cilindrada <=50 && this.answer1.carnet === 5 ){
-							console.log('Carnet AM')
-							dbSelectedRef.push(this.motos[n])
-					}
-				}  
-
+				for(let moto in this.motos){
+					console.log("Todas se van")
+					dbFilterOneRef.push(this.motos[moto])
 				}
-		// 		for(let moto in this.motos){
-		// 			console.log(this.motos[moto].potencia)
+			},
+
+		
+
+		saveFirstAnswer2(e){
+				this.answer1.carnet = parseInt(e.currentTarget.value)
+				console.log(this.answer1.carnet)
+				// var uid = auth.currentUser.uid
+				dbUsersRef.push(this.answer1)
 					
-		// 			if(this.answer1.carnet === 1){
-		// 					console.log('Se han pusheado todas')
-		// 					db.ref('selected').push(this.motos[moto])
+				for(let moto in this.motos){
 
-		// 			} else if(this.answer1.carnet === 2 && this.motos[moto].potencia <= 47 ){
-		// 					console.log('Se han pusheado las menores de 47cv ')
-		// 					db.ref('selected').push(this.motos[moto])
+					if(this.motos[moto].potencia <= 47){
+							
+						console.log("Las mayores de 47cv se van")
+						dbFilterOneRef.push(this.motos[moto])
+					}
+				}
 
-		// 			} else if(this.answer1.carnet === 3 && this.motos[moto].potencia <= 15){
-		// 					console.log('Se han pusheado las menores de 15cv')
-		// 					db.ref('selected').push(this.motos[moto])
-
-		// 			} else if(this.answer1.carnet === 5 && this.motos[moto].cilindrada <= 50){
-		// 					console.log('Se han eliminado las menores de 50cc')
-		// 					db.ref('selected').push(this.motos[moto])
-		// 			} else if(this.answer1.carnet === 5 && this.motos[moto].cilindrada <= 50){
-		// 					console.log('Se han eliminado las menores de 50cc')
-		// 					db.ref('selected').push(this.motos[moto]) 
-		// 			}
-				
-		// 	 }
-		// 	}
 		},
-	
+		saveFirstAnswer3(e){
+			this.answer1.carnet = parseInt(e.currentTarget.value)
+			console.log(this.answer1.carnet)
+			// var uid = auth.currentUser.uid
+			dbUsersRef.push(this.answer1)
+				
+			for(let moto in this.motos){
 
-	created() {
-		
-  	axios.get(`https://buy-bike.firebaseio.com/motos.json`)
-    	.then(response => {
-      // JSON responses are automatically parsed.
-      this.motos = response.data
-      })
-	    .catch(e => {
-	      this.errors.push(e)
-	    })
-			    
+				if(this.motos[moto].potencia <= 15 || this.motos[moto].cilindrada <= 125){
+						
+					console.log("Las mayores de 15cv se van")
+					dbFilterOneRef.push(this.motos[moto])
+				}
+			}
+
+		},
+		saveFirstAnswer4(e){
+			this.answer1.carnet = parseInt(e.currentTarget.value)
+			console.log(this.answer1.carnet)
+			// var uid = auth.currentUser.uid
+			dbUsersRef.push(this.answer1)
+				
+			for(let moto in this.motos){
+
+				if( this.motos[moto].cilindrada <= 50){
+						
+					console.log("Las mayores de 50cc se van")
+					dbFilterOneRef.push(this.motos[moto])
+				}
+			}
+
+		}
+
 	},
-
-
-		
+		created() {
+			
+	  	axios.get(`https://buy-bike.firebaseio.com/motos.json`)
+	    	.then(response => {
+	      // JSON responses are automatically parsed.
+	      this.motos = response.data
+	      })
+		    .catch(e => {
+		      this.errors.push(e)
+		    })
+			    
+		},
 
 		firebase: {
 			motos: {
@@ -126,12 +136,22 @@
 			users: {
 				source: dbUsersRef
 			},
-			selected:{
-				source: dbSelectedRef
+			filter1:{
+				source: dbFilterOneRef
 			}
 		
-		}	
-			
+		}
 		
 	}
 </script>
+
+<style>
+
+	.main {
+	  background-image: url("/src/assets/fondo.jpg");
+	  height: 500px;
+	  padding: 10%;
+
+
+	}
+</style>
