@@ -3,14 +3,14 @@
 		<div class="row">
 			<div class="col-12 mt-5">
 				<h2 class="text-center">What brand are you interested in?</h2><br>
-				<h5 class="text-center">Note: This is only to know the perferences of our customers</h5>
+				<h5 class="text-center">Note: This is only to know the preferences of our customers</h5>
 			</div>
 		</div>
 		<div class="container brands">
 			<div class="row">			
-				<img class="aprilia ml-2" src="../assets/logo_aprilia.gif"@click="goToResult">
-				<img class="aprilia ml-2" src="../assets/logo_bmw.gif"@click="goToResult">
-				<img class="aprilia ml-2"  src="../assets/logo_daelim.gif"@click="goToResult">
+				<img class="aprilia ml-2" src="../assets/logo_aprilia.gif" value ="Aprilia"@click="goToResult">
+				<img class="bmw ml-2" src="../assets/logo_bmw.gif"@click="goToResult">
+				<img class="daelim ml-2"  src="../assets/logo_daelim.gif"@click="goToResult">
 				<img class="aprilia ml-2"  src="../assets/logo_derbi.gif"@click="goToResult">
 				<img class="aprilia ml-2"  src="../assets/logo_ducati.gif"@click="goToResult">
 				<img class="aprilia ml-2"  src="../assets/logo_harleydavidson.gif"@click="goToResult">
@@ -30,10 +30,9 @@
 				<img class="aprilia ml-2 mt-2" src="../assets/logo_triumph.gif"@click="goToResult">
 				<img class="aprilia ml-2 mt-2" src="../assets/logo_vespa.gif"@click="goToResult">
 				<img class="aprilia ml-2 mt-2" src="../assets/logo_yamaha.gif"@click="goToResult">
-				 <b-btn class="ml-2 mt-2" variant="primary"@click="goToResult">None</b-btn>
+				<b-btn class="ml-2 mt-2" variant="primary"@click="goToResult">None</b-btn>
 			</div>
 		</div>
-			<!-- <b-button variant="outline-primary"@click="goToResult"value="none">None</b-button> -->
 	</b-container>
 </template>
 
@@ -46,10 +45,14 @@
 		data(){
 			return{
 				currentPage: 5,
+				brand: "",
+
 			}
 		},
 		methods: {
-			goToResult(){
+			goToResult(e){
+				this.brand = e.currentTarget.value
+				console.log(this.brand)
 				this.$router.replace({name: 'resultLink'})
 				auth.signOut()
 					.then(function() {
@@ -58,6 +61,7 @@
 					//muestra error
 					alert(err.message);
 				});
+
 		  }
 		}
 	}

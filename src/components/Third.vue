@@ -5,7 +5,7 @@
 				<h2 class="text-center">How many kilometres will you do daily?</h2><br>
 			</div>
 		</div>
-		<div class=" row justify-content-center no-padding mt-5">
+		<div class=" row justify-content-center no-padding mt-4">
 			<router-link :to="{name:'fourthLink'}">
 				<b-button class="ml-3 btn-lg" variant="outline-primary"@click="saveThirdAnswer1" value="10">0 - 10km</b-button>
 			</router-link>
@@ -19,10 +19,16 @@
 				<b-button class="ml-3 btn-lg" variant="outline-primary"@click="saveThirdAnswer4"value="1">For weekend routes</b-button>
 			</router-link>
 		</div>
-		<div class="container pags mt-5">
-			<div class="row d-flex justify-content-end">
-				<b-pagination-nav align="right" :number-of-pages="5" base-url="#" v-model="currentPage" />
-			</div>
+		<div class="container pags mt-4">
+			<div class="col-6">
+				<h5 class="text-left font-weight-bold">Recommendations for a good search: </h5> 
+				<p>If you have AM license you should choose 0 - 10km</p>
+				<p>If you have A1 license you should choose 20km maximum</p>
+				</div>
+				<div class="row d-flex justify-content-end">
+					<b-pagination-nav align="right" :number-of-pages="5" base-url="#" v-model="currentPage" />
+				</div>
+		
 		</div>
 	</b-container>
 </template>
@@ -72,7 +78,7 @@
 
 				for(let moto in this.tercera){
 					// console.log(this.tercera[moto].key)
-					if(this.tercera[moto].cilindrada >= 124 && this.tercera[moto].cilindrada <= 400){
+					if(this.tercera[moto].cilindrada >= 125 && this.tercera[moto].cilindrada <= 400 ){
 							console.log('Se han elminado las menores de 125cc y mas de 400cc')
 							 dbFilterThreeRef.push(this.tercera[moto])
 						}
@@ -114,10 +120,7 @@
 	  	axios.get(`https://buy-bike.firebaseio.com/filter2.json`)
 	    	.then(response => {
 	      // JSON responses are automatically parsed.
-	      this.tercera = response.data
-	      // console.log(response.data)
-	      // console.log(response.data["-LD5rQR8kONWe92YGY-6"].marca)
-	      
+	      this.tercera = response.data   
 	      return this.tercera
 	      })
 		    .catch(e => {

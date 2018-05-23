@@ -14,7 +14,7 @@
         <img class="card-img-top" src="src/assets/duda.jpg" alt="dudas">
         <div class="card-body">
           <h5 class="card-title font-weight-bold">What model can I choose?</h5>
-          <p class="card-text">Sometimes this part is confusing for people, because in the market there are many models and you don´t know what to choose so with our test doubts disaapear!</p>
+          <p class="card-text">Sometimes this part is confusing for people, because in the market there are many models and you don´t know what to choose so with our test your doubts disappear!</p>
         </div>
       </div>
       <div class="card">
@@ -35,7 +35,7 @@
     <div class="container opinion">
       <h2 class="font-weight-bold">Opinions</h2>
       <div class="row mt-4">
-        <div class="col-3 text-center mb-4">
+        <div class="col-3 text-center">
           <img id="client" class="rounded-circle" src="src/assets/dude.jpg" alt="cliente contento">
         </div>
         <div class="col-3">
@@ -82,10 +82,11 @@ export default {
 <style>
   
   .card-img-top {
-    height: 200px;
+    height: 250px;
   }
   #client {
     width: 60%;
+    margin-bottom: 15px;
   }
   #find {
     width: 50%;
@@ -96,6 +97,10 @@ export default {
   }
   .opinion {
     background-color: #D5D3D4;
+    margin-bottom: 10px;
+  }
+  .company {
+    margin-bottom: 5px;
   }
   
 </style>

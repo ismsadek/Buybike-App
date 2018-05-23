@@ -12,6 +12,9 @@
 		<router-link :to="{name:'fifthLink'}">
 			<b-button class="ml-3 btn-lg" variant="outline-primary" value="1"@click="saveFourthAnswer2">Scooter</b-button>
 		</router-link>
+		<router-link :to="{name:'fifthLink'}">
+			<b-button class="ml-3 btn-lg" variant="outline-primary" value="2"@click="saveFourthAnswer3">I don´t mind</b-button>
+		</router-link>
 	</div>
 	<div class="container pags mt-5">
 		<div class="row d-flex justify-content-end">
@@ -71,7 +74,19 @@
 					}
 				}
 
-			}
+			},
+			saveFourthAnswer3(e){
+				this.answer4.preferencia = parseInt(e.currentTarget.value)
+				console.log(this.answer4.preferencia)	
+				db.ref('users').push(this.answer4)
+
+				for(let moto in this.cuarta){
+						console.log('Se han movido con y sin marchas '+ this.cuarta[moto].modelo )
+						db.ref('final').push(this.cuarta[moto])
+					}
+				}
+
+			
 		},
 		created() {
 		

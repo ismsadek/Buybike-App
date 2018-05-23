@@ -2,7 +2,7 @@
 
   <div class="container-fluid footer pt-4 pb-4">
 	 <div class="row">
-    <div class="col-6">
+    <div class="col-4">
     <b-nav align="center">
       <b-nav-item disabled>Conditions</b-nav-item>
       <b-nav-item disabled>Privacy Policy</b-nav-item>
@@ -10,10 +10,23 @@
       <b-nav-item disabled>More information</b-nav-item>
     </b-nav>
     </div>
-    <div class="col-6">
-      <i class="fab fa-linkedin">Linkedin</i>
+    <div class="col-4 text-center">
+      <img id="find2" class="rounded-circle" src="src/assets/find2.jpg" alt="quienes somos">
+    </div>
+    <div class="col-4">
+      <ul class="nav justify-content-end">
+        <li class="nav-item">
+          <a class="nav-link" href="https://www.linkedin.com/in/ismaelsadek/">Linkedin <i class="fab fa-linkedin"></i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Email <i class="far fa-envelope"></i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Facebook <i class="fab fa-facebook-f"></i>
 
-
+</a>
+        </li>
+      </ul>
     </div>
    </div>
   </div>
@@ -33,6 +46,9 @@
   }
   .footer a {
     color: #fff !important;   
+  }
+  #find2 {
+    width: 10%;
   }
 
   

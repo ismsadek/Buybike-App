@@ -1,7 +1,6 @@
 <template>
 	<div class="container mt-4">
 		<h3>The motorbikes that we have found based on your preferences are the following: </h3>
-		<!-- <b-button variant="outline-success"@click="findThem"> Find them! </b-button><br><br> -->
 		<router-link :to="{name:'homeLink'}">
 		<b-btn class="mt-4" v-b-popover.hover.focus="'Clear everything!'" variant="outline-danger"@click="clearUsersDb" id="clear"> Clear </b-btn><br><br>
 		</router-link>
@@ -13,11 +12,11 @@
 					<img v-bind:src="moto.foto" alt="imagen de la moto" class="img fluid card-img-top">
 			 		<div class="card-body"> 
 				 		<ul class="card-text">
-							<li>Marca: <strong>{{moto.marca}}</strong> </li>
-							<li>Modelo: <strong>{{moto.modelo}}</strong></li> 
-							<li>Potencia: {{moto.potencia}}cv</li>
-							<li>Cilindrada: {{moto.cilindrada}}cc</li>  
-							<li>Precio: <strong>{{moto.precio}}</strong> €</li>
+							<li>Brand: <strong>{{moto.marca}}</strong> </li>
+							<li>Model: <strong>{{moto.modelo}}</strong></li> 
+							<li>Maximum Power: {{moto.potencia}}cv</li>
+							<li>Displacement: {{moto.cilindrada}}cc</li>  
+							<li>Price: <strong>{{moto.precio}}</strong> €</li>
 						</ul>
 					</div>
 				</div>
@@ -92,7 +91,8 @@
 
 	}
 	.back {
-		background-color: #A56654;
+		/*background-color: #BDBDBD;*/
+		margin-bottom: 5px;
 
 	}
 	.card-img-top{
