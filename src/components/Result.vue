@@ -1,20 +1,12 @@
 <template>
-	<div class="container">
-		<h5>The motorbikes that we have found based on your preferences are the next: </h5>
+	<div class="container mt-4">
+		<h3>The motorbikes that we have found based on your preferences are the following: </h3>
 		<!-- <b-button variant="outline-success"@click="findThem"> Find them! </b-button><br><br> -->
 		<router-link :to="{name:'homeLink'}">
-		<b-btn  v-b-popover.hover.focus="'Clear everything!'" variant="outline-danger"@click="clearUsersDb" id="clear"> Clear </b-btn><br><br>
+		<b-btn class="mt-4" v-b-popover.hover.focus="'Clear everything!'" variant="outline-danger"@click="clearUsersDb" id="clear"> Clear </b-btn><br><br>
 		</router-link>
 
-		<!-- <h5>Choose one and see the nearest workshop!</h5> -->
-		<!-- <div v-for="user in users">
-			{{user.carnet}}
-			{{user.presupuesto}}
-			{{user.distancia}}
-			{{user.preferencia}}
-			
-		</div> -->
-		<div class="container">
+		<div class="container back mt-5 ">
 			<div class="row">
 			<div class="card-group pt-2 pb-2 col-sm-3 col-md-4" v-for="moto in final">
 				<div class="card m-2">
@@ -34,14 +26,6 @@
 		</div>
 
 	</div>
-
-		
-		
-		
-		
-		
-	
-
 </template>
 
 <script>
@@ -54,10 +38,6 @@
 	import { dbBrandRef } from '../firebase'
 
 	import { db } from '../firebase';
-
-	
-
-
 
 	export default {
 		data(){
@@ -106,14 +86,23 @@
 </script>
 
 <style>
-	img {
-		/*height: 450px;
-		width: 600px;*/
-	}
+	
 	#clear {
 		float: right;
 
 	}
+	.back {
+		background-color: #A56654;
+
+	}
+	.card-img-top{
+		height: 250px;
+		
+	}
+	
+	h3 {
+    font-family: 'Raleway', sans-serif;
+  }
 
 
 </style>

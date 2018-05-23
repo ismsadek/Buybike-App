@@ -1,18 +1,29 @@
 <template>
-	<b-container>
-		<h4>How many kilometres will you do daily?</h4><br>
-		<router-link :to="{name:'fourthLink'}">
-			<b-button class="ml-3" variant="outline-primary"@click="saveThirdAnswer1" value="10">0 - 10km</b-button>
-		</router-link>
-		<router-link :to="{name:'fourthLink'}">
-			<b-button class="ml-3" variant="outline-primary"@click="saveThirdAnswer2" value="20">10 - 20km</b-button>
-		</router-link>
-		<router-link :to="{name:'fourthLink'}">
-			<b-button class="ml-3" variant="outline-primary"@click="saveThirdAnswer3"value="30">More than 20km</b-button>
-		</router-link>
-		<router-link :to="{name:'fourthLink'}">
-			<b-button class="ml-3" variant="outline-primary"@click="saveThirdAnswer4"value="1">For weekend routes</b-button>
-		</router-link>
+	<b-container fluid class="main no-padding">
+		<div class="row">
+			<div class="col-12 mt-5">
+				<h2 class="text-center">How many kilometres will you do daily?</h2><br>
+			</div>
+		</div>
+		<div class=" row justify-content-center no-padding mt-5">
+			<router-link :to="{name:'fourthLink'}">
+				<b-button class="ml-3 btn-lg" variant="outline-primary"@click="saveThirdAnswer1" value="10">0 - 10km</b-button>
+			</router-link>
+			<router-link :to="{name:'fourthLink'}">
+				<b-button class="ml-3 btn-lg" variant="outline-primary"@click="saveThirdAnswer2" value="20">10 - 20km</b-button>
+			</router-link>
+			<router-link :to="{name:'fourthLink'}">
+				<b-button class="ml-3 btn-lg" variant="outline-primary"@click="saveThirdAnswer3"value="30">More than 20km</b-button>
+			</router-link>
+			<router-link :to="{name:'fourthLink'}">
+				<b-button class="ml-3 btn-lg" variant="outline-primary"@click="saveThirdAnswer4"value="1">For weekend routes</b-button>
+			</router-link>
+		</div>
+		<div class="container pags mt-5">
+			<div class="row d-flex justify-content-end">
+				<b-pagination-nav align="right" :number-of-pages="5" base-url="#" v-model="currentPage" />
+			</div>
+		</div>
 	</b-container>
 </template>
 
@@ -30,6 +41,7 @@
 	export default {
 		data(){
 			return {
+				currentPage: 3,
 				answer3: {
 					'distancia': "",
 				}
@@ -129,3 +141,16 @@
 		}
 	}
 </script>
+
+<style>
+	.main {
+	  background-image: url("/src/assets/fondo.jpg");
+	  background: cover;
+	  height: 400px;
+	}
+
+	.btn {
+		padding-left: 30px;
+		padding-right: 30px;
+	}
+</style>

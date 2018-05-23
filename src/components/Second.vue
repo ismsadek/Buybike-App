@@ -1,18 +1,29 @@
 <template>
-	<b-container>
-		<h4>What's your budget?</h4><br>
-		<router-link :to="{name:'thirdLink'}">
-			<b-button class="ml-3" variant="outline-primary"value="4.999"@click="saveSecondAnswer1">0 - 4.999 €</b-button>
-		</router-link>
-		<router-link :to="{name:'thirdLink'}">
-			<b-button class="ml-3" variant="outline-primary"value="9.999"@click="saveSecondAnswer2">5.000 - 9.999 €</b-button>
-		</router-link>
-		<router-link :to="{name:'thirdLink'}">
-			<b-button class="ml-3" variant="outline-primary"value="14.999"@click="saveSecondAnswer3">10.000 - 14.999 €</b-button>
-		</router-link>
-		<router-link :to="{name:'thirdLink'}">
-			<b-button class="ml-3" variant="outline-primary"value="100.000"@click="saveSecondAnswer4">I don´t have</b-button>
-		</router-link>
+	<b-container fluid class="main no-padding">
+		<div class=" row ">
+			<div class="col-12 mt-5">
+				<h2 class="text-center">What's your budget?</h2><br>
+			</div>
+		</div>
+		<div class=" row justify-content-center no-padding mt-5">
+			<router-link :to="{name:'thirdLink'}">
+				<b-button class="ml-3 btn-lg" variant="outline-primary"value="4.999"@click="saveSecondAnswer1">0 - 4.999 €</b-button>
+			</router-link>
+			<router-link :to="{name:'thirdLink'}">
+				<b-button class="ml-3 btn-lg" variant="outline-primary"value="9.999"@click="saveSecondAnswer2">5.000 - 9.999 €</b-button>
+			</router-link>
+			<router-link :to="{name:'thirdLink'}">
+				<b-button class="ml-3 btn-lg" variant="outline-primary"value="14.999"@click="saveSecondAnswer3">10.000 - 14.999 €</b-button>
+			</router-link>
+			<router-link :to="{name:'thirdLink'}">
+				<b-button class="ml-3 btn-lg" variant="outline-primary"value="100.000"@click="saveSecondAnswer4">I don´t have</b-button>
+			</router-link>
+		</div>
+		<div class="container pags mt-5">
+			<div class="row d-flex justify-content-end">
+				<b-pagination-nav align="right" :number-of-pages="5" base-url="#" v-model="currentPage" />
+			</div>
+		</div>
 	</b-container>
 </template>
 
@@ -29,6 +40,7 @@
 	export default {
 		data(){
 			return {
+				currentPage: 2,
 				answer2: {
 					'presupuesto': "",
 				},
@@ -102,10 +114,7 @@
 	  	axios.get(`https://buy-bike.firebaseio.com/filter1.json`)
 	    	.then(response => {
 	      // JSON responses are automatically parsed.
-	      this.selections = response.data
-	      // console.log(response.data)
-	      // console.log(response.data["-LD5rQR8kONWe92YGY-6"].marca)
-	      
+	      this.selections = response.data	      
 	      return this.selections
 	      })
 		    .catch(e => {
@@ -134,3 +143,15 @@
 		
 	
 </script>
+<style>
+	.main {
+	  background-image: url("/src/assets/fondo.jpg");
+	  background: cover;
+	  height: 400px;
+	}
+
+	.btn {
+		padding-left: 30px;
+		padding-right: 30px;
+	}
+</style>

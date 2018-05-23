@@ -1,12 +1,12 @@
 <template>
-  <div class="conatiner fluid" id="app">
-     <b-container fluid>
+  <div id="app">
+     <b-container fluid class="no-padding">
       <Header/>  
     </b-container>
-    <b-container fluid>
+    <b-container fluid class="no-padding">
       <router-view/>
     </b-container>
-    <b-container fluid>
+    <b-container fluid class="no-padding">
       <Footer/>
     </b-container fluid>
   </div>

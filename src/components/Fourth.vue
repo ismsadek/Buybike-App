@@ -1,12 +1,23 @@
 <template>
-	<b-container>
-		<h4>Do you prefer it with gear switching or scooter type?</h4><br>
+	<b-container fluid class="main no-padding">
+		<div class="row">
+			<div class="col-12 mt-5">
+				<h2 class="text-center">Do you prefer it with gear switching or scooter type?</h2><br>
+			</div>
+		</div>
+		<div class=" row justify-content-center no-padding mt-5">
 		<router-link :to="{name:'fifthLink'}">
-			<b-button class="ml-3" variant="outline-primary" value="0"@click="saveFourthAnswer1">Manual</b-button>
+			<b-button class="ml-3 btn-lg" variant="outline-primary" value="0"@click="saveFourthAnswer1">Gears</b-button>
 		</router-link>
 		<router-link :to="{name:'fifthLink'}">
-			<b-button class="ml-3" variant="outline-primary" value="1"@click="saveFourthAnswer2">Automático</b-button>
+			<b-button class="ml-3 btn-lg" variant="outline-primary" value="1"@click="saveFourthAnswer2">Scooter</b-button>
 		</router-link>
+	</div>
+	<div class="container pags mt-5">
+		<div class="row d-flex justify-content-end">
+			<b-pagination-nav align="right" :number-of-pages="5" base-url="#" v-model="currentPage" />
+		</div>
+	</div>
 	</b-container>
 </template>
 
@@ -24,6 +35,7 @@
 	export default {
 		data(){
 			return {
+				currentPage: 4,
 				answer4: {
 					'preferencia': "",
 				}
@@ -94,3 +106,20 @@
 		}
 	}
 </script>
+
+<style>
+	.main {
+	  background-image: url("/src/assets/fondo.jpg");
+	  background: cover;
+	  height: 400px;
+	}
+
+	.btn {
+		padding-left: 30px;
+		padding-right: 30px;
+	}
+	h2 {
+    font-family: 'Raleway', sans-serif;
+  }
+	
+</style>

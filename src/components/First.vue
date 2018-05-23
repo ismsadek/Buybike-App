@@ -1,11 +1,11 @@
 <template>
-	<b-container fluid class="main">
-		<div class=" row">
-			<div class="col-6">
-			<h4>What's your driving license?</h4><br>
+	<b-container fluid class="main no-padding">
+		<div class="row">
+			<div class="col-12 mt-5">
+				<h2 class="text-center">What's your driving license?</h2><br>
 			</div>
 		</div>
-		<div class=" row justify-content-center">
+		<div class=" row justify-content-center no-padding mt-5">
 			<router-link :to="{name:'secondLink'}">
 				<b-button  class="ml-3 btn-lg" variant="outline-primary"value ="1"@click="saveFirstAnswer1">A</b-button>
 			</router-link>
@@ -22,9 +22,11 @@
 				<b-button class="ml-3 btn-lg" variant="outline-primary"value ="5"@click="saveFirstAnswer4">AM</b-button>
 			</router-link>
 		</div>
-
-		
-
+		<div class="container pags mt-5">
+			<div class="row d-flex justify-content-end">
+				<b-pagination-nav align="right" :number-of-pages="5" base-url="#" v-model="currentPage" />
+			</div>
+		</div>
 	</b-container>
 	
 </template>
@@ -42,6 +44,7 @@
 	export default {
 		data(){
 			return {
+				currentPage: 1,
 				motos: [],
 				errors: [],
 				answer1: {
@@ -149,9 +152,16 @@
 
 	.main {
 	  background-image: url("/src/assets/fondo.jpg");
-	  height: 500px;
-	  padding: 10%;
-
-
+	  background: cover;
+	  height: 400px;
 	}
+
+	.btn {
+		padding-left: 30px;
+		padding-right: 30px;
+	}
+	h2 {
+    font-family: 'Raleway', sans-serif;
+  }
+	
 </style>
