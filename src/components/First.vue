@@ -1,11 +1,10 @@
 <template>
 	<b-container fluid class="main no-padding">
-		<div class="row">
 			<div class="col-12 mt-5">
 				<h2 class="text-center">What's your driving license?</h2><br>
 			</div>
 		</div>
-		<div class=" row justify-content-center no-padding mt-5">
+		<div class="text-center no-padding mt-5">
 			<router-link :to="{name:'secondLink'}">
 				<b-button  class="ml-3 btn-lg" variant="outline-primary"value ="1"@click="saveFirstAnswer1">A</b-button>
 			</router-link>
@@ -55,14 +54,14 @@
 
 		methods: {
 
-			saveFirstAnswer1(e){
+			saveFirstAnswer1(e){	// Saving the first answer with the button value
+
 				this.answer1.carnet = parseInt(e.currentTarget.value)
 				console.log(this.answer1.carnet)
-				// var uid = auth.currentUser.uid
 				dbUsersRef.push(this.answer1)
-					
-				for(let moto in this.motos){
-					console.log("Todas se van")
+
+				for(let moto in this.motos){		// iterating inside the database 
+					console.log("Todas se añaden")
 					dbFilterOneRef.push(this.motos[moto])
 				}
 			},
@@ -70,61 +69,54 @@
 		
 
 		saveFirstAnswer2(e){
+
 				this.answer1.carnet = parseInt(e.currentTarget.value)
 				console.log(this.answer1.carnet)
-				// var uid = auth.currentUser.uid
 				dbUsersRef.push(this.answer1)
 					
 				for(let moto in this.motos){
-
 					if(this.motos[moto].potencia <= 47){
-							
-						console.log("Las mayores de 47cv se van")
+						console.log("Las mayores de 47cv se eliminan")
 						dbFilterOneRef.push(this.motos[moto])
 					}
 				}
 
 		},
 		saveFirstAnswer3(e){
+			
 			this.answer1.carnet = parseInt(e.currentTarget.value)
 			console.log(this.answer1.carnet)
-			// var uid = auth.currentUser.uid
 			dbUsersRef.push(this.answer1)
 				
 			for(let moto in this.motos){
-
 				if(this.motos[moto].potencia <= 15 || this.motos[moto].cilindrada <= 125){
-						
-					console.log("Las mayores de 15cv se van")
+					console.log("Las mayores de 15cv o 125cc se eliminan")
 					dbFilterOneRef.push(this.motos[moto])
 				}
 			}
-
 		},
+
 		saveFirstAnswer4(e){
+			
 			this.answer1.carnet = parseInt(e.currentTarget.value)
 			console.log(this.answer1.carnet)
-			// var uid = auth.currentUser.uid
 			dbUsersRef.push(this.answer1)
 				
 			for(let moto in this.motos){
-
 				if( this.motos[moto].cilindrada <= 50){
-						
 					console.log("Las mayores de 50cc se van")
 					dbFilterOneRef.push(this.motos[moto])
 				}
 			}
-
 		}
 
 	},
 		created() {
-			
+			// Calling Firebase with axios request
 	  	axios.get(`https://buy-bike.firebaseio.com/motos.json`)
 	    	.then(response => {
-	      // JSON responses are automatically parsed.
-	      this.motos = response.data
+	      	// JSON responses are automatically parsed.
+	      	this.motos = response.data
 	      })
 		    .catch(e => {
 		      this.errors.push(e)

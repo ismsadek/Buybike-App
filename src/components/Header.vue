@@ -19,6 +19,7 @@
       <b-carousel-slide id="foto-3" img-src="src/assets/bike3_mini.jpg">
       </b-carousel-slide>
     </b-carousel>
+    <img class=" logo rounded-circle" src="src/assets/logo.jpg">
 		<b-container class="jumbo ml-4">
 			<b-jumbotron class="pt-0 pb-0" header="Buybike" lead="The app which helps you to choose the best option!">
 			  <b-btn class="ml-4" variant="danger"@click="goToTest">Try now!</b-btn>
@@ -88,6 +89,12 @@ export default {
 	 #foto-1, #foto-2 ,#foto-3{
 	 	height: 500px;
 
+	 }
+	 .logo {
+	 	height: 80px;
+	 	position: absolute;
+	 	top: 30px;
+	 	left: 50px;
 	 }
 	
 </style>

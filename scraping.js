@@ -260,7 +260,7 @@ app.get('/scraping', function(req, res){
 			})
 	    
 		})
-	  // module.exports = { data: dataBase}; 
+	  
 	  res.send('Your scrapping was succesful!!')	
 })
 

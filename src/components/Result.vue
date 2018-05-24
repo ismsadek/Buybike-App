@@ -1,6 +1,6 @@
 <template>
 	<div class="container mt-4">
-		<h3>The motorbikes that we have found based on your preferences are the following: </h3>
+		<h4>The motorbikes that we have found based on your preferences are the following: </h4>
 		<router-link :to="{name:'homeLink'}">
 		<b-btn class="mt-4" v-b-popover.hover.focus="'Clear everything!'" variant="outline-danger"@click="clearUsersDb" id="clear"> Clear </b-btn><br><br>
 		</router-link>
@@ -23,7 +23,9 @@
 			</div>
 		</div>
 		</div>
-
+		<div class="container text-center">
+			<iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d51187.052483720814!2d-4.470201653592519!3d36.69395318124713!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sconcesionarios+motos+malaga!5e0!3m2!1ses!2ses!4v1527147770149" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+		</div>
 	</div>
 </template>
 
@@ -92,7 +94,7 @@
 	}
 	.back {
 		/*background-color: #BDBDBD;*/
-		margin-bottom: 5px;
+		margin-bottom: 15px;
 
 	}
 	.card-img-top{
@@ -100,7 +102,7 @@
 		
 	}
 	
-	h3 {
+	h4 {
     font-family: 'Raleway', sans-serif;
   }
 

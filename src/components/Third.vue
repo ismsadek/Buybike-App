@@ -1,11 +1,10 @@
 <template>
 	<b-container fluid class="main no-padding">
-		<div class="row">
 			<div class="col-12 mt-5">
 				<h2 class="text-center">How many kilometres will you do daily?</h2><br>
 			</div>
 		</div>
-		<div class=" row justify-content-center no-padding mt-4">
+		<div class=" text-center no-padding mt-4">
 			<router-link :to="{name:'fourthLink'}">
 				<b-button class="ml-3 btn-lg" variant="outline-primary"@click="saveThirdAnswer1" value="10">0 - 10km</b-button>
 			</router-link>
@@ -23,7 +22,7 @@
 			<div class="col-6">
 				<h5 class="text-left font-weight-bold">Recommendations for a good search: </h5> 
 				<p>If you have AM license you should choose 0 - 10km</p>
-				<p>If you have A1 license you should choose 20km maximum</p>
+				<p>If you have A1 or B license you should choose 20km maximum</p>
 				</div>
 				<div class="row d-flex justify-content-end">
 					<b-pagination-nav align="right" :number-of-pages="5" base-url="#" v-model="currentPage" />

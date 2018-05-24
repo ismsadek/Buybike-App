@@ -1,11 +1,10 @@
 <template>
 	<b-container fluid class="main no-padding">
-		<div class=" row ">
 			<div class="col-12 mt-5">
 				<h2 class="text-center">What's your budget?</h2><br>
 			</div>
 		</div>
-		<div class=" row justify-content-center no-padding mt-5">
+		<div class=" text-center no-padding mt-5">
 			<router-link :to="{name:'thirdLink'}">
 				<b-button class="ml-3 btn-lg" variant="outline-primary"value="4.999"@click="saveSecondAnswer1">0 - 4.999 €</b-button>
 			</router-link>
@@ -53,14 +52,12 @@
 				console.log(this.answer2.presupuesto)
 				db.ref('users').push(this.answer2)
 				
-				// console.log("soy marca  :" + this.selections["-LD5rQR8kONWe92YGY-7"].marca)
 				for(let selected in this.selections){
 
 					if(this.selections[selected].precio <5.000){
-							
-							console.log("Las mayores de 5.000 pavos fuera")
+							console.log("Las mayores de 5.000 euros fuera")
 							dbFilterTwoRef.push(this.selections[selected])
-						}
+					}
 				}
 			}, 
 
@@ -69,12 +66,11 @@
 				console.log(this.answer2.presupuesto)
 				db.ref('users').push(this.answer2)
 				
-				// console.log("soy marca  :" + this.selections["-LD5rQR8kONWe92YGY-7"].marca)
 				for(let selected in this.selections){
 
 					if(this.selections[selected].precio <=10.000){
 							
-							console.log("Las mayores de 10.000 pavos fuera")
+							console.log("Las mayores de 10.000 euros fuera")
 							dbFilterTwoRef.push(this.selections[selected])
 						}
 				}
@@ -89,7 +85,7 @@
 
 					if(this.selections[selected].precio <=15.000){
 							
-							console.log("Las mayores de 15.000 pavos fuera")
+							console.log("Las mayores de 15.000 euros fuera")
 							dbFilterTwoRef.push(this.selections[selected])
 						}
 				}

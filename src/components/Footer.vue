@@ -1,17 +1,16 @@
 <template>
 
-  <div class="container-fluid footer pt-4 pb-4">
+  <div class="container-fluid everything pt-4 pb-4">
 	 <div class="row">
     <div class="col-4">
     <b-nav align="center">
       <b-nav-item disabled>Conditions</b-nav-item>
       <b-nav-item disabled>Privacy Policy</b-nav-item>
       <b-nav-item disabled>Intellectual Property</b-nav-item>
-      <b-nav-item disabled>More information</b-nav-item>
     </b-nav>
     </div>
-    <div class="col-4 text-center">
-      <img id="find2" class="rounded-circle" src="src/assets/find2.jpg" alt="quienes somos">
+    <div class="col-4 text-center autor">
+      <p>Designed by Ismael Sadek Merchán</p>
     </div>
     <div class="col-4">
       <ul class="nav justify-content-end">
@@ -39,17 +38,19 @@
 </script>
 
 <style>
-  .footer {
+  .everything {
     background-color:  #73787E;
     opacity: 0.99;
+    color: #fff !important;
+
     
   }
-  .footer a {
+  .everything a{
     color: #fff !important;   
   }
-  #find2 {
-    width: 10%;
-  }
 
-  
+  .autor {
+    color: white;
+  }
+    
 </style>

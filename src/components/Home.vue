@@ -18,14 +18,14 @@
         </div>
       </div>
       <div class="card">
-        <img class="card-img-top" src="src/assets/algorithm.jpg" alt="Card image cap">
+        <img class="card-img-top" src="src/assets/algorithm2.jpg" alt="Card image cap">
         <div class="card-body">
           <h5 class="card-title font-weight-bold">The algorithm most efficient</h5>
           <p class="card-text">Based on our technical knowledge we have created an algorithm that shows you the bikes which fits you.</p>
         </div>
       </div>
       <div class="card">
-        <img class="card-img-top" src="src/assets/results.jpg" alt="Card image cap">
+        <img class="card-img-top" src="src/assets/results.png" alt="Card image cap">
         <div class="card-body">
           <h5 class="card-title font-weight-bold">Verified results</h5>
           <p class="card-text">Our clients are very proud of this app because they recognize that with this process they get a clearer idea of the models available for them.</p>
@@ -36,13 +36,13 @@
       <h2 class="font-weight-bold">Opinions</h2>
       <div class="row mt-4">
         <div class="col-3 text-center">
-          <img id="client" class="rounded-circle" src="src/assets/dude.jpg" alt="cliente contento">
+          <img id="client" class=" foto rounded-circle" src="src/assets/dude.jpg" alt="cliente contento">
         </div>
         <div class="col-3">
           <p class="font-italic">" I would recommend it to everybody! It´s nice, fast and efficient"</p>
         </div>
         <div class="col-3 text-center">
-         <img id="client" class="rounded-circle" src="src/assets/enri.jpg" alt="cliente contento">
+         <img id="client" class="foto rounded-circle" src="src/assets/enri.jpg" alt="cliente contento">
         </div>
         <div class="col-3">
           <p class="font-italic">"Two months ago I was so confused when I wanted to buy my first bike and Buybike helped me to take the best decision "</p>
@@ -56,8 +56,8 @@
           <h2 class="font-weight-bold">Who we are</h2>
           <p>Buybike appears as a final project of a web developer course taught in Málaga by the EOI, we are a young company in growth and our goal is to help the society to find the bike of his dream on an easy way. We love riders! we love bikes!</p>
         </div>
-        <div class="col-6">
-          <img id="find" src="src/assets/find.png" alt="quienes somos">
+        <div class="col-6 mt-2">
+          <img class="foto" src="src/assets/company.jpg" alt="quienes somos">
         </div>
       </div>
     </section>
@@ -83,21 +83,19 @@ export default {
   
   .card-img-top {
     height: 250px;
-  }
-  #client {
-    width: 60%;
-    margin-bottom: 15px;
-  }
-  #find {
-    width: 50%;
 
   }
+  .foto {
+    height: 150px;
+    margin-bottom: 20px;
+  }
+  
   h1, h2, h5{
     font-family: 'Raleway', sans-serif;
   }
   .opinion {
-    background-color: #D5D3D4;
-    margin-bottom: 10px;
+    background-color: #F5DF88;
+    margin-bottom: 20px;
   }
   .company {
     margin-bottom: 5px;

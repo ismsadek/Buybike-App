@@ -1,11 +1,10 @@
 <template>
 	<b-container fluid class="main no-padding">
-		<div class="row">
 			<div class="col-12 mt-5">
 				<h2 class="text-center">Do you prefer it with gear switching or scooter type?</h2><br>
 			</div>
 		</div>
-		<div class=" row justify-content-center no-padding mt-5">
+		<div class="text-center no-padding mt-5">
 		<router-link :to="{name:'fifthLink'}">
 			<b-button class="ml-3 btn-lg" variant="outline-primary" value="0"@click="saveFourthAnswer1">Gears</b-button>
 		</router-link>
@@ -51,7 +50,6 @@
 				db.ref('users').push(this.answer4)
 
 				for(let moto in this.cuarta){
-					// console.log(this.cuarta[moto].modelo)
 					
 					if( this.cuarta[moto].cambio === 'Manual'){
 							console.log('Se ha movido la '+ this.cuarta[moto].modelo )
@@ -92,12 +90,9 @@
 		
 	  	axios.get(`https://buy-bike.firebaseio.com/filter3.json`)
 	    	.then(response => {
-	      // JSON responses are automatically parsed.
-	      this.cuarta = response.data
-	      // console.log(response.data)
-	      // console.log(response.data["-LD5rQR8kONWe92YGY-6"].marca)
-	      
-	      return this.cuarta
+		      // JSON responses are automatically parsed.
+		      this.cuarta = response.data	      
+		      return this.cuarta
 	      })
 		    .catch(e => {
 		      this.errors.push(e)

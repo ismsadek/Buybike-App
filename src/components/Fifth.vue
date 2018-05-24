@@ -1,6 +1,5 @@
 <template>
 	<b-container fluid class="main no-padding">
-		<div class="row">
 			<div class="col-12 mt-5">
 				<h2 class="text-center">What brand are you interested in?</h2><br>
 				<h5 class="text-center">Note: This is only to know the preferences of our customers</h5>
