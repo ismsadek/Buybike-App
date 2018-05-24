@@ -14,6 +14,7 @@
     "bootstrap-vue": "^2.0.0-rc.9",
     "cheerio": "^1.0.0-rc.2",
     "express": "^4.16.3",
+    "express-force-https": "^1.0.0",
     "firebase": "^5.0.2",
     "jquery": "^3.3.1",
     "mongoose": "^5.1.1",

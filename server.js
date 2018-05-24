@@ -1,51 +1,21 @@
-const express = require('express');
-const bodyParser = require('body-parser')
-const app = express();
-const mongoose = require('mongoose');
-const cors = require('cors')
+const express = require('express')
+const serveStatic = require('serve-static')
+const path = require('path')
 
-//Middlewares
-app.use(bodyParser.json())
-app.use(express.urlencoded());
-app.use(cors());
-
-const serverPort = 3000;
-
-//Errors
-var messageErrorJson = {
-  error: "Not Found",
-  description: "This item was not found",
-  url: "http:://#"
-}
-
-// MONGO CONNECTION
-
-	let connString = "mongodb://ismsadek:amor..com93@ds119110.mlab.com:19110/buybike-app";
-	const db = mongoose.connection;
-	mongoose.connect(connString);
-
-	db.on('error',function(){
-		console.log("Error al conectarse a Mongo");
-	});
-	db.once('open', function() {
-		console.log("Conectado a MongoDB");
-	});
+const secure = require('express-force-https');
 
 
+const app = express()
+app.use(secure)
 
 
+app.use("/", serveStatic ( path.join (__dirname, '/dist') ) )
+app.get('*', function (req, res) {
+    res.sendFile(__dirname + '/dist/index.html')
+})
+const port = process.env.PORT || 5000
+app.listen(port)
 
-// app.get("/api/motos", (req, res) => {
- 
-// })
 
-// app.get("/api/motos/:id", (req, res) => {
-  
-//   try {
-    
-//   }catch(err){
-//     res.status(404).json(errorJson)
-//   }
-// })
-
+console.log('Server started on port ' + port)
 
